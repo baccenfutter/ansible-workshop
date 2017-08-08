@@ -1,0 +1,32 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: apt-get update
+      apt:
+        update_cache: yes
+    
+    - name: install aptitude
+      apt:
+        pkg: aptitude
+        state: installed
+        update_cache: no
+    
+    - name: full-upgrade
+      apt:
+        update_cache: no
+        upgrade: full
+      ignore_errors: yes
+      register: fullupgrade
+
+    - name: remove persistent net rules
+      when: fullupgrade|failed
+      file:
+        path: /etc/udev/rules.d/70-persistent-net.rules
+        state: absent
+
+    - name: full-upgrade
+      when: fullupgrade|failed
+      apt:
+        update_cache: no
+        upgrade: full
+

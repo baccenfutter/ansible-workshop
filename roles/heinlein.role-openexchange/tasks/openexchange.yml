@@ -1,0 +1,20 @@
+- name: add repo (frontend)
+  apt_repository:
+    repo: deb http://software.open-xchange.com/products/appsuite/stable/appsuiteui/DebianJessie/ /
+  notify: apt-get update
+
+- name: add repo (frontend)
+  apt_repository:
+    repo: deb http://software.open-xchange.com/products/appsuite/stable/backend/DebianJessie/ /
+  notify: apt-get update
+
+- name: install OpenExchange
+  apt:
+    pkg: '{{ pkg_item }}'
+    state: installed
+    update_cache: no
+  with_items: '{{ openexchange_package_list }}'
+  loop_control:
+    loop_var: pkg_item
+
+

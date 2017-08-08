@@ -1,0 +1,7 @@
+- hosts: app
+  become: yes
+  vars:
+    apache2_enabled: yes
+  roles:
+    - heinlein.role-apache2
+

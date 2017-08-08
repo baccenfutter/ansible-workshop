@@ -1,0 +1,8 @@
+openexchange_package_list:
+  - open-xchange
+  - open-xchange-authentication-database
+  - open-xchange-grizzly
+  - open-xchange-admin
+  - open-xchange-appsuite
+  - open-xchange-appsuite-backend
+  - open-xchange-appsuite-manifest

@@ -1,0 +1,11 @@
+- hosts: app
+  become: yes
+  vars:
+    openexchange_enabled: yes
+
+  vars_files:
+    - ../inventories/extra_vars/openexchange/{{ heinlein_stage }}.yml
+
+  roles:
+    - heinlein.role-openexchange
+

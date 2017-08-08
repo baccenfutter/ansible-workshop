@@ -1,0 +1,7 @@
+[all:vars]
+heinlein_stage="production"
+app_public_ip=84....
+
+[app]
+ox[1:10].mailbox.org
+

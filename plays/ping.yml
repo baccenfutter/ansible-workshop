@@ -1,0 +1,23 @@
+- hosts: app
+  become: yes
+
+  vars:
+    ansible_user: vagrant
+    foo: bar
+    bernd: 42
+
+  pre_tasks: []
+
+  roles: []
+
+  tasks:
+    - name: gib mal info
+      debug:
+        msg: '{{ vars }}'
+      notify: restart tinc
+
+  handlers:
+    - name: restart tinc
+      service:
+        name: tinc
+        state: restarted

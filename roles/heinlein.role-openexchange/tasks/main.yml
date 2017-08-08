@@ -1,0 +1,2 @@
+- include: openexchange.yml
+  when: openexchange_enabled

@@ -1,0 +1,7 @@
+[all:vars]
+heinlein_stage="vagrant"
+ansible_user=vagrant
+app_public_ip=10.42.0.2
+
+[app]
+app.ansible-workshop.vagrant
